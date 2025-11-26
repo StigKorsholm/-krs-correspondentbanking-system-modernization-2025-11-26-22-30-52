@@ -1,0 +1,15 @@
+graph TB
+  %% BIAN Trinity Architecture Overview
+
+  Memory["💾 MEMORY Layer<br/>(System of Record)<br/>2 contexts"]
+  Heart["💚 HEART Layer<br/>(Lifecycle/Relationship)<br/>1 contexts"]
+  Brain["🧠 BRAIN Layer<br/>(Operations/Execution)<br/>1 contexts"]
+
+  style Memory fill:#3498db,stroke:#333,stroke-width:3px,color:#fff
+  style Heart fill:#2ecc71,stroke:#333,stroke-width:3px,color:#fff
+  style Brain fill:#e67e22,stroke:#333,stroke-width:3px,color:#fff
+
+  Memory -->|provides reference data| Heart
+  Memory -->|provides reference data| Brain
+  Heart -->|manages lifecycle| Brain
+  Brain -->|executes operations| Heart
