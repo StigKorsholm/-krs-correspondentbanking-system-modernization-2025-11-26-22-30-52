@@ -1,0 +1,26 @@
+graph TB
+  %% Comprehensive Context Map
+  %% Generated from bounded context analysis
+
+  bc_001["💚 Correspondent Relationship Management"]
+  style bc_001 fill:#2ecc71,stroke:#333,stroke-width:2px,color:#fff
+  bc_002["💾 Settlement Instructions Management"]
+  style bc_002 fill:#3498db,stroke:#333,stroke-width:2px,color:#fff
+  bc_003["🧠 Nostro Account Management"]
+  style bc_003 fill:#e67e22,stroke:#333,stroke-width:2px,color:#fff
+  bc_004["💾 Clearing System Directory"]
+  style bc_004 fill:#3498db,stroke:#333,stroke-width:2px,color:#fff
+  bc_005["⚙️ Correspondent Data Gateway"]
+  style bc_005 fill:#95a5a6,stroke:#333,stroke-width:2px,color:#fff
+  bc_006["⚙️ Legacy Integration (Anti-Corruption Layer)"]
+  style bc_006 fill:#95a5a6,stroke:#333,stroke-width:2px,color:#fff
+
+  bc_001 ==>|open-host-service| bc_002
+  bc_003 ==>|open-host-service| bc_002
+  bc_004 ==>|published-language| bc_002
+  All_Business_Contexts ==>|published-language| bc_005
+  All_Business_Contexts -->|anti-corruption-layer| Legacy_Integration_ACL
+
+  %% Legend
+  legend["Legend:<br/>💾 Memory (Reference Data)<br/>💚 Heart (Lifecycle)<br/>🧠 Brain (Operations)<br/>⚙️ Hybrid/Technical"]
+  style legend fill:#f9f9f9,stroke:#999,stroke-width:1px,color:#333
